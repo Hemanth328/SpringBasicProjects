@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+           <!-- Config Dependent classes -->
+         <bean id="dtdc" class="com.hemanth.comps.DTDC" />
+         <bean id="bdart" class="com.hemanth.comps.BlueDart" />
+         
+         <!-- Config Target Class -->
+         
+         <!-- If no scope is given then by default it considers it's scope as singleton -->
+         
+         <!-- <bean id="fpkt" class="com.hemanth.comps.Flipkart" scope="singleton">
+           <property name="courier" ref="bdart" /> Setter Injection
+         </bean> -->
+         
+         
+         <bean id="fpkt" class="com.hemanth.comps.Flipkart" scope="prototype">
+           <property name="courier" ref="bdart" /> <!-- Setter Injection -->
+         </bean>
+         
+         
+         
+           <!-- Request Scope -->
+          <!-- <bean id="fpkt" class="com.hemanth.comps.Flipkart" scope="request">
+           <property name="courier" ref="bdart" /> Setter Injection
+         </bean> -->
+         
+         <!-- <bean id="p1" class="com.hemanth.singleton.Printer" />   Case 1 
+         <bean id="p2" class="com.hemanth.singleton.Printer" />  -->  
+         
+         
+         
+         <!-- <bean id="p1" class="com.hemanth.singleton.Printer" factory-method="getInstance" />
+         <bean id="p2" class="com.hemanth.singleton.Printer" factory-method="getInstance" />  -->
+         
+         
+         <!-- What happens if we configure real singleton java classes as spring bean with prototype scope -->
+         
+         
+        <!--  <bean id="p1" class="com.hemanth.singleton.Printer" factory-method="getInstance" scope="prototype" />
+         <bean id="p2" class="com.hemanth.singleton.Printer" factory-method="getInstance" scope="prototype" /> -->
+         
+         <!-- Without factory method  -->
+         <bean id="p1" class="com.hemanth.singleton.Printer"  scope="prototype" />
+         <bean id="p2" class="com.hemanth.singleton.Printer"  scope="prototype" />
+         
+         
+         
+           
+</beans>

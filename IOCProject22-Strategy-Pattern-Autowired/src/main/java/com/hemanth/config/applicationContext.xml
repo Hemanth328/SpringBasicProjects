@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		
+		<!-- xmlns:context="http://www.springframework.org/schema/context"    
+		    This is for configuring all the annotation Bean Post processor at once
+		    and we start to use them need not to write like this for any of the annotations
+		     <bean id="ppAW" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"  />
+		 -->
+		 
+		 
+		 
+		<!--  
+           
+         Config Java classes as spring bean class and not as Target/Dependent class
+         <bean id="dtdc" class="com.hemanth.sbeans.DTDC" />
+         
+         <bean id="bdart" class="com.hemanth.sbeans.BlueDart" />
+         
+         <bean id="fpkt" class="com.hemanth.sbeans.Flipkart">
+         
+         id="fpkt", if we dont give this bean id then by default it will be the class i.e "com.hemanth.sbeans.Flipkart"
+           <property name="courier" ref="bdart" /> Setter Injection
+         </bean>        
+         
+         
+         To detect the Autowired Injection we need to configure the Bean Post Processor
+         <bean id="ppAW" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"  />
+         Here giving spring id in this case is optional, if not given by default it will take the class name as bean id having first letter as the lower case
+         
+         
+         
+         
+         
+          -->
+         
+         <!-- Ambiguity problem and solution   this is with Qualifier -->
+         
+        <!-- 
+         <bean id="dtdc" class="com.hemanth.sbeans.DTDC" />
+         
+         <bean id="bDart" class="com.hemanth.sbeans.BlueDart" />
+         
+         <bean id="fpkt" class="com.hemanth.sbeans.Flipkart" />
+         
+         <context:annotation-config />
+		
+ -->
+ 
+ 
+ 
+    <!-- Ambiguity problem and solution   this is without Qualifier Annotation and primary attribute -->
+ 
+         <bean id="dtdc" class="com.hemanth.sbeans.DTDC" />
+         
+         <bean id="bDart" class="com.hemanth.sbeans.BlueDart" />
+          <!-- Here the bean id has been taken as bean property on which Autowired annotation is placed -->
+          
+          <bean id="ffgt" class="com.hemanth.sbeans.FirstFlight" />
+          
+          <bean id="dhl" class="com.hemanth.sbeans.DHL" />
+         
+         <bean id="fpkt" class="com.hemanth.sbeans.Flipkart" />
+         
+         <context:annotation-config />
+
+</beans>

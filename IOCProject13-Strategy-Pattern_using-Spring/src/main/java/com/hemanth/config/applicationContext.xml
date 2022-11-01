@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+           <!-- Config Dependent classes -->
+         <bean id="dtdc" class="com.hemanth.comps.DTDC" />
+         <bean id="bdart" class="com.hemanth.comps.BlueDart" />
+         
+         <!-- Config Target Class -->
+         <bean id="fpkt" class="com.hemanth.comps.Flipkart">
+           <property name="courier" ref="bdart" /> <!-- Setter Injection -->
+         </bean>        
+</beans>

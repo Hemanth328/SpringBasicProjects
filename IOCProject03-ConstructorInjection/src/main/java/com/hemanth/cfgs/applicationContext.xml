@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+           <!-- spring bean cfg -->
+           <!--  dependent class cfg as spring bean -->
+           <bean id="dt" class="java.util.Date" />
+           
+           <!-- target class as spring bean -->
+           
+           <bean id="wmg" class="com.hemanth.beans.WishMessageGenerator">
+          <!-- <property name="date" ref="dt" />   This is for setter Injection -->
+           <constructor-arg name="date" ref="dt" />
+           </bean>
+           
+           <bean id="st" class="com.hemanth.beans.Student">
+              <constructor-arg name="sno" value="1001" />
+              <constructor-arg name="sname" value="hemanth" />
+              <constructor-arg name="sadd" value="Visakhapatnam" />
+             <!--  <constructor-arg name="avg" value="86.4" /> -->
+              
+             <!--  <property name="sno" value="1002" />
+              <property name="sname" value="Hemanth" /> -->
+              <!-- <property name="sadd" value="Visakhapatnam" /> -->
+              <!-- <property name="avg" value="10.2" /> -->
+              <!-- <property name="course" value="Spring Boot" /> -->
+           </bean>
+           
+ </beans>          
